@@ -9,117 +9,131 @@
 <body>
   <div class="app">
     <nav class="top-nav no-print">
-      <a href="javascript:void(0)" onclick="showPage('mainPage', 'homeSection')">⌂ Home</a>
-      <a href="javascript:void(0)" onclick="showPage('mainPage', 'hasilSection')">☽ Hasil</a>
-      <a href="javascript:void(0)" onclick="showPage('pendukungPage', 'pendukungSection')">▣ Pendukung Data</a>
+      <button type="button" onclick="showPage('mainPage','homeSection')">⌂ Home</button>
+      <button type="button" onclick="showPage('mainPage','hasilSection')">☽ Hasil</button>
+      <button type="button" onclick="showPage('pendukungPage','pendukungSection')">▣ Pendukung Data</button>
     </nav>
 
     <main id="mainPage" class="page-section active">
-    <section class="hero no-print" id="homeSection">
-      <h1>25 Dalil Jamuan Walimah</h1>
-      <h3 style="margin:10px 0 4px;font-size:18px">Irfan Zidny Wahab Al-Hasib</h3>
-      <p style="margin:0;font-size:13px;opacity:.86">Programed by Ali Syehan</p>
-    </section>
+      <section id="homeSection" class="hero">
+        <h1>25 Dalil Jamuan Walimah</h1>
+        <h2>Irfan Zidny Wahab Al-Hasib</h2>
+        <p>Programed by Ali Syehan</p>
+      </section>
 
-    <section class="card no-print" id="inputSection">
-      <div class="toggle-head">
-        <div>
-          <h2 class="section-title" style="margin:0">Masukan Data</h2>
-          <p class="section-sub" style="margin:4px 0 0">Card data default tertutup. Tekan tombol contoh untuk mengisi data Event Chart.</p>
-        </div>
-        <button id="inputCardBtn" class="small-btn" onclick="toggleBox('inputCardContent','inputCardBtn')">Open</button>
-      </div>
-
-      <div class="action-row" style="margin-top:12px">
-        <button class="btn btn-gold" onclick="isiContohEventChart()">Isi Contoh Event Chart</button>
-      </div>
-
-      <div id="inputCardContent" class="hidden" style="margin-top:14px">
-        <div class="grid-2">
-          <div><label>Nama Kegiatan / Acara</label><input id="namaKegiatan" type="text" value=""></div>
-          <div><label>Nama Client / Penanya</label><input id="namaPenanya" type="text" value=""></div>
-        </div>
-        <div id="baytContainer" class="bayt-grid" style="margin-top:14px"></div>
-        <div class="action-row">
-          <button class="btn btn-primary" onclick="enterInput()">Enter Input</button>
-          <button class="btn btn-light" onclick="resetInput()">Reset</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="hasilSection">
-      <h2 class="section-title">Hasil Pembacaan</h2>
-      <div id="identitasHasil" class="section-sub">Belum ada hasil. Tekan Enter Input.</div>
-
-
-      <div class="card" style="box-shadow:none;margin:12px 0">
-        <div class="toggle-head"><h3 class="section-title" style="margin:0">Event Chart</h3><button id="eventBtn" class="small-btn" onclick="toggleBox('eventContent','eventBtn')">Open</button></div>
-        <div id="eventContent" class="hidden" style="margin-top:12px"><div id="eventChartOutput"></div></div>
-      </div>
-
-      <div class="card" style="box-shadow:none;margin:12px 0">
-        <div class="toggle-head"><h3 class="section-title" style="margin:0">Planet dari Posisi Bulan</h3><button id="moonBtn" class="small-btn" onclick="toggleBox('moonContent','moonBtn')">Open</button></div>
-        <div id="moonContent" class="hidden" style="margin-top:12px"><div id="moonOutput"></div></div>
-      </div>
-
-      <div class="card hasil-tafsir-card" style="margin:14px 0">
+      <section id="inputSection" class="card no-print">
         <div class="toggle-head">
           <div>
-            <h3 class="section-title" style="margin:0">Hasil Tafsir 25 Dalil</h3>
-            <p class="section-sub" style="margin:4px 0 0">(Silahkan Open)</p>
+            <h2 class="section-title">Masukan Data</h2>
+            <p class="section-sub">Card data default tertutup. Tekan tombol contoh untuk mengisi data Event Chart.</p>
           </div>
-          <button id="dalilUtamaBtn" class="small-btn" onclick="toggleBox('dalilUtamaContent','dalilUtamaBtn')">Open</button>
+          <button id="inputCardBtn" class="small-btn" type="button" onclick="toggleBox('inputCardContent','inputCardBtn')">Open</button>
         </div>
-        <div id="dalilUtamaContent" class="hidden" style="margin-top:12px">
-          <div id="dalilContainer" class="dalil-grid"></div>
+        <div class="action-row under-title">
+          <button class="btn btn-gold" type="button" onclick="isiContohEventChart()">Isi Contoh Event Chart</button>
         </div>
-      </div>
+        <div id="inputCardContent" class="hidden input-content">
+          <div class="grid-2">
+            <div>
+              <label>Nama Kegiatan / Acara</label>
+              <input id="namaKegiatan" type="text" placeholder="Contoh: Pernikahan" />
+            </div>
+            <div>
+              <label>Nama Client / Penanya</label>
+              <input id="namaPenanya" type="text" placeholder="Contoh: Ali" />
+            </div>
+          </div>
+          <div id="baytContainer" class="bayt-grid"></div>
+          <div class="action-row">
+            <button class="btn btn-primary" type="button" onclick="enterInput()">Enter Input</button>
+            <button class="btn btn-light" type="button" onclick="resetInput()">Reset</button>
+          </div>
+        </div>
+      </section>
 
+      <section id="hasilSection" class="card hasil-card">
+        <h2 class="section-title">Hasil Pembacaan</h2>
+        <div id="identitasHasil" class="section-sub">Belum ada hasil. Tekan Isi Contoh Event Chart lalu Enter Input.</div>
 
-      <div class="card" id="printDalilSummaryCard" style="box-shadow:none;margin:14px 0">
-        <div class="toggle-head no-print">
-          <h3 class="section-title" style="margin:0">Resume Tafsir</h3>
-          <button id="printSummaryBtn" class="small-btn" onclick="toggleBox('printDalilSummaryContent','printSummaryBtn')">Open</button>
-        </div>
-        <div id="printDalilSummaryContent" class="hidden" style="margin-top:12px">
-          <div id="printDalilSummaryOutput" class="print-summary-list"></div>
-        </div>
-      </div>
+        <article class="sub-card no-print">
+          <div class="toggle-head">
+            <h3>Event Chart</h3>
+            <button id="eventBtn" class="small-btn" type="button" onclick="toggleBox('eventContent','eventBtn')">Open</button>
+          </div>
+          <div id="eventContent" class="hidden"><div id="eventChartOutput"></div></div>
+        </article>
 
-      <div class="card" style="box-shadow:none;margin:14px 0 0">
-        <div class="toggle-head"><h3 class="section-title" style="margin:0">Ringkasan Statistik</h3><button id="summaryBtn" class="small-btn" onclick="toggleBox('summaryContent','summaryBtn')">Open</button></div>
-        <div id="summaryContent" class="summary-grid hidden" style="margin-top:12px">
-          <div class="summary-card"><span>Total Nilai</span><strong id="totalNilai">-</strong></div>
-          <div class="summary-card"><span>Jumlah Dalil Sa‘ad / Sa‘ad Dominan</span><strong id="jumlahSaad">-</strong></div>
-          <div class="summary-card"><span>Jumlah Dalil Netral / Sa‘ad dan Nahas Berimbang</span><strong id="jumlahNetral">-</strong></div>
-          <div class="summary-card"><span>Jumlah Dalil Nahas / Nahas Dominan</span><strong id="jumlahNahas">-</strong></div>
-        </div>
-      </div>
-      <div class="action-row no-print" style="justify-content:center;margin-top:14px">
-        <button class="btn btn-gold" onclick="printHasil()">Print / Simpan PDF</button>
-      </div>
-    </section>
+        <article class="sub-card no-print">
+          <div class="toggle-head">
+            <h3>Planet dari Posisi Bulan</h3>
+            <button id="moonBtn" class="small-btn" type="button" onclick="toggleBox('moonContent','moonBtn')">Open</button>
+          </div>
+          <div id="moonContent" class="hidden"><div id="moonOutput"></div></div>
+        </article>
 
+        <article class="sub-card hasil-tafsir-card no-print">
+          <div class="toggle-head">
+            <div>
+              <h3>Hasil Tafsir 25 Dalil</h3>
+              <p class="section-sub">(Silahkan Open)</p>
+            </div>
+            <button id="dalilUtamaBtn" class="small-btn" type="button" onclick="toggleBox('dalilUtamaContent','dalilUtamaBtn')">Open</button>
+          </div>
+          <div id="dalilUtamaContent" class="hidden"><div id="dalilContainer" class="dalil-grid"></div></div>
+        </article>
+
+        <article id="resumeCard" class="sub-card print-area">
+          <div class="toggle-head no-print">
+            <h3>Resume Tafsir</h3>
+            <button id="printSummaryBtn" class="small-btn" type="button" onclick="toggleBox('printDalilSummaryContent','printSummaryBtn')">Open</button>
+          </div>
+          <div id="printDalilSummaryContent" class="hidden-print-open"><div id="printDalilSummaryOutput" class="resume-list"></div></div>
+        </article>
+
+        <article class="sub-card no-print">
+          <div class="toggle-head">
+            <h3>Ringkasan Statistik</h3>
+            <button id="summaryBtn" class="small-btn" type="button" onclick="toggleBox('summaryContent','summaryBtn')">Open</button>
+          </div>
+          <div id="summaryContent" class="hidden">
+            <div class="summary-grid">
+              <div class="summary-card"><span>Total Nilai</span><strong id="totalNilai">0</strong></div>
+              <div class="summary-card"><span>Jumlah Dalil Sa‘ad / Sa‘ad Dominan</span><strong id="jumlahSaad">0</strong></div>
+              <div class="summary-card"><span>Jumlah Dalil Netral / Sa‘ad dan Nahas Berimbang</span><strong id="jumlahNetral">0</strong></div>
+              <div class="summary-card"><span>Jumlah Dalil Nahas / Nahas Dominan</span><strong id="jumlahNahas">0</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <div class="action-row print-button-row no-print">
+          <button class="btn btn-gold" type="button" onclick="printHasil()">Print / Simpan PDF</button>
+        </div>
+      </section>
     </main>
 
     <main id="pendukungPage" class="page-section">
-    <section class="hero no-print">
-      <h1>Pendukung Data</h1>
-      <p>Halaman khusus untuk data rujukan: poin planet, zodiak penguasa, dan tafsir planet jamuan.</p>
-    </section>
-
-    <section class="card no-print" id="pendukungSection">
-      <h2 class="section-title">Pendukung Data</h2>
-      <p class="section-sub">Semua card pendukung data default hide. Interpretasi utama aplikasi memakai kolom interpretasiJamuan saja.</p>
-      <div class="action-row" style="margin:0 0 14px">
-        <button class="btn btn-light" onclick="showPage('mainPage', 'homeSection')">← Kembali ke Halaman Utama</button>
-      </div>
-      <div class="card" style="box-shadow:none"><div class="toggle-head"><h3 class="section-title" style="margin:0">Poin Planet</h3><button id="pdPoinBtn" class="small-btn" onclick="toggleBox('pdPoin','pdPoinBtn')">Open</button></div><div id="pdPoin" class="hidden" style="margin-top:12px"></div></div>
-      <div class="card" style="box-shadow:none"><div class="toggle-head"><h3 class="section-title" style="margin:0">Zodiak dan Planet Penguasa</h3><button id="pdZodiakBtn" class="small-btn" onclick="toggleBox('pdZodiak','pdZodiakBtn')">Open</button></div><div id="pdZodiak" class="hidden" style="margin-top:12px"></div></div>
-      <div class="card" style="box-shadow:none"><div class="toggle-head"><h3 class="section-title" style="margin:0">Tafsir Planet Jamuan</h3><button id="pdTafsirBtn" class="small-btn" onclick="toggleBox('pdTafsir','pdTafsirBtn')">Open</button></div><div id="pdTafsir" class="hidden" style="margin-top:12px"></div></div>
-    </section>
+      <section class="hero mini-hero no-print">
+        <h1>Pendukung Data</h1>
+        <p>Data rujukan aplikasi 25 Dalil Jamuan Walimah.</p>
+      </section>
+      <section id="pendukungSection" class="card no-print">
+        <div class="action-row back-row"><button class="btn btn-light" type="button" onclick="showPage('mainPage','homeSection')">← Kembali</button></div>
+        <article class="sub-card">
+          <div class="toggle-head"><h3>Poin Planet</h3><button id="pdPoinBtn" class="small-btn" type="button" onclick="toggleBox('pdPoin','pdPoinBtn')">Open</button></div>
+          <div id="pdPoin" class="hidden"></div>
+        </article>
+        <article class="sub-card">
+          <div class="toggle-head"><h3>Zodiak dan Planet Penguasa</h3><button id="pdZodiakBtn" class="small-btn" type="button" onclick="toggleBox('pdZodiak','pdZodiakBtn')">Open</button></div>
+          <div id="pdZodiak" class="hidden"></div>
+        </article>
+        <article class="sub-card">
+          <div class="toggle-head"><h3>Tafsir Planet Jamuan</h3><button id="pdTafsirBtn" class="small-btn" type="button" onclick="toggleBox('pdTafsir','pdTafsirBtn')">Open</button></div>
+          <div id="pdTafsir" class="hidden"></div>
+        </article>
+      </section>
     </main>
   </div>
+
   <script src="js/db/db-zodiak-penguasa.js"></script>
   <script src="js/db/db-poin-planet.js"></script>
   <script src="js/db/db-aspek-merkurius.js"></script>
