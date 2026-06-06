@@ -230,5 +230,22 @@ window.toggleBox=(id,btnOrId)=>{ const el=$(id); if(!el)return; el.classList.tog
 window.showPage=(pageId,anchorId)=>{document.querySelectorAll('.page-section').forEach(p=>p.classList.remove('active')); const p=$(pageId); if(p)p.classList.add('active'); setTimeout(()=>{const a=$(anchorId)||p; if(a)a.scrollIntoView({behavior:'smooth',block:'start'})},40)};
 window.printHasil=()=>{const pc=$('printDalilSummaryContent'); if(pc)pc.classList.remove('hidden'); if(window.AndroidPrint&&typeof window.AndroidPrint.printPage==='function')window.AndroidPrint.printPage(); else window.print();};
 
-document.addEventListener('DOMContentLoaded',()=>{initBaytCards(); renderPendukungData(); resetOutput();});
+document.addEventListener('DOMContentLoaded',()=>{
+  initBaytCards();
+  renderPendukungData();
+  resetOutput();
+
+  // Revisi: Resume Tafsir default hide.
+  // Tetap terbuka otomatis saat tombol Print dipakai melalui printHasil().
+  const resumeContent = $('printDalilSummaryContent');
+  const resumeBtn = $('printSummaryBtn');
+
+  if (resumeContent) {
+    resumeContent.classList.add('hidden');
+  }
+
+  if (resumeBtn) {
+    resumeBtn.textContent = 'Open';
+  }
+});
 })();
