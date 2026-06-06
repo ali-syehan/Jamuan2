@@ -1,0 +1,11 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">@color/maroon_primary</item>
+        <item name="android:navigationBarColor">@color/maroon_deep</item>
+        <item name="android:statusBarColor">@color/maroon_deep</item>
+    </style>
+</resources>
